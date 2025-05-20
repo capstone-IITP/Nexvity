@@ -84,47 +84,7 @@
 </head>
 
 <body>
-  <script>
-    // Force custom cursor at the earliest possible moment
-    (function () {
-      if (window.innerWidth >= 992) {
-        // Create and inject a style element with the highest priority cursor rules
-        const style = document.createElement('style');
-        style.innerHTML = `
-          * { 
-            cursor: none !important; 
-          }
-          .cursor-wrapper {
-            z-index: 2147483647 !important;
-            pointer-events: none !important;
-          }
-          /* Extra targeting for services section */
-          #capability, #capability *, section[id="capability"], section[id="capability"] * {
-            cursor: none !important;
-          }
-          .text-white.py-16, .text-white.py-16 * {
-            cursor: none !important;
-          }
-          .rounded-lg, .shadow-md, .grid, .flex, .text-gray-400 {
-            cursor: none !important;
-          }
-        `;
-        document.head.appendChild(style);
-
-        // Additional handling for services section when DOM is ready
-        document.addEventListener('DOMContentLoaded', function () {
-          const servicesSection = document.getElementById('capability');
-          if (servicesSection) {
-            servicesSection.style.cursor = 'none !important';
-            const allElements = servicesSection.querySelectorAll('*');
-            allElements.forEach(function (el) {
-              el.style.cursor = 'none !important';
-            });
-          }
-        });
-      }
-    })();
-  </script>
+  <script>    // Custom cursor removed    (function () {      // No custom cursor initialization    })();  </script>
   <div class="page-wrapper">
     <div bind="4f34a39c-fda6-7dca-a9ad-8e431021bb2b" class="global-styles w-embed">
       <style>
@@ -442,10 +402,7 @@ a,
     <div class="canvas-outer w-embed"><splash-bg class="splash-bg">
         <canvas class="splash-canvas"></canvas>
       </splash-bg></div>
-    <div class="cursor-wrapper">
-      <div data-w-id="5ce99972-3def-b670-4c42-b6a067cb189c" style="width:1rem;height:1rem;filter:blur(0px)"
-        class="cursor-element"></div>
-    </div>
+    <!-- Cursor element removed -->
     <div data-animation="default" class="navbar_component w-nav" data-wf--navbar--variant="base" data-easing2="ease"
       fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium"
       data-w-id="602d53d4-f4a7-465b-4f68-82eeb60e8c87" role="banner" data-no-scroll="1" data-duration="400"
@@ -460,14 +417,14 @@ a,
             class="navbar_link w-nav-link">Work</a><a href="#capability"
             class="navbar_link w-nav-link">Capabilities</a><a href="#process"
             class="navbar_link w-nav-link">Process</a><a href="#testimonial"
-            class="navbar_link w-nav-link">Testimonial</a><a href=""
+            class="navbar_link w-nav-link">Testimonial</a><a href="hire-us.html"
             class="button is-navbar-button menu_button w-inline-block">
             <div class="button_circle menu_button-circle"></div>
             <div class="button_text-regular is-menu-button-text">Hire Us</div>
             <div class="button-inner-shadow"></div>
           </a></nav>
-        <div id="w-node-_602d53d4-f4a7-465b-4f68-82eeb60e8c9f-b60e8c87" class="navbar_button-wrapper"><a href=""
-            class="button is-navbar-button w-inline-block">
+        <div id="w-node-_602d53d4-f4a7-465b-4f68-82eeb60e8c9f-b60e8c87" class="navbar_button-wrapper"><a
+            href="hire-us.html" class="button is-navbar-button w-inline-block">
             <div class="button_circle"></div>
             <div class="button_text-small">Hire Us</div>
             <div class="button-inner-shadow"></div>
@@ -506,7 +463,8 @@ a,
                     SEO-friendly, and beautifully built for modern audiences.</p>
                   <div class="margin-top margin-medium">
                     <div class="button-group is-center is-height-full"><a
-                        data-w-id="b2267820-ccfd-dfdf-10cd-230e902926de" href="" class="button is-icon w-inline-block">
+                        data-w-id="b2267820-ccfd-dfdf-10cd-230e902926de" href="hire-us.html"
+                        class="button is-icon w-inline-block">
                         <div class="button_text-regular">Work with me</div>
                         <div bind="0970dca1-6827-27ab-5b49-462135c8b06c" class="icon-1x1-small w-embed"><svg
                             xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 17 17"
@@ -2560,7 +2518,8 @@ a,
                     <div class="button-inner-shadow"></div>
                   </a>
 
-                  <a href="https://www.youtube.com/@Official.Nexvity" target="_blank" class="footer_social-link w-inline-block">
+                  <a href="https://www.youtube.com/@Official.Nexvity" target="_blank"
+                    class="footer_social-link w-inline-block">
                     <div class="footer_social-image w-embed">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                         viewBox="0 0 24 24">
@@ -2695,83 +2654,7 @@ a,
       runauto();
       setInterval(runauto, 60 * 1000); // refresh every 60 seconds
 
-      // Fix for services section cursor
-      if (width >= 992) {
-        // Apply special cursor handling to the services section
-        function fixServicesCursor() {
-          document.querySelectorAll('#capability, #capability *, .text-white.py-16, .text-white.py-16 *').forEach(function (el) {
-            el.style.setProperty('cursor', 'none', 'important');
-          });
-        }
-
-        // Apply immediately
-        fixServicesCursor();
-
-        // Apply on scroll or touch events that might affect the section
-        document.addEventListener('scroll', fixServicesCursor);
-        document.addEventListener('touchstart', fixServicesCursor);
-        document.addEventListener('touchmove', fixServicesCursor);
-
-        // Periodically reapply to the services section
-        setInterval(fixServicesCursor, 100);
-      }
-
-      // Global custom cursor enhancements
-      if (width >= 992) {
-        // Set the highest possible z-index for cursor wrapper
-        $(".cursor-wrapper").css({
-          "z-index": "2147483647",
-          "pointer-events": "none !important"
-        });
-
-        // Force cursor:none on all elements, even those with position:fixed or high z-index
-        $("*").css("cursor", "none !important");
-
-        // Apply to specific elements that might have their own cursor styles
-        $("a, button, [role='button'], input, select, textarea, [tabindex]:not([tabindex='-1'])").css("cursor", "none !important");
-        $(".navbar_component, [style*='position: fixed'], [style*='z-index'], .w-nav").css("cursor", "none !important");
-
-        // Special targeting for services section
-        $("#capability, #capability *, section[id='capability'], section[id='capability'] *").css("cursor", "none !important");
-        $(".text-white.py-16, .text-white.py-16 *").css("cursor", "none !important");
-        $(".rounded-lg, .shadow-md, .grid, .flex, .text-gray-400").css("cursor", "none !important");
-
-        // Create a MutationObserver to watch for new elements added to the DOM
-        const observer = new MutationObserver(function (mutations) {
-          mutations.forEach(function (mutation) {
-            if (mutation.addedNodes && mutation.addedNodes.length > 0) {
-              for (let i = 0; i < mutation.addedNodes.length; i++) {
-                const node = mutation.addedNodes[i];
-                if (node.nodeType === 1) { // Element node
-                  $(node).css("cursor", "none !important");
-                  $(node).find("*").css("cursor", "none !important");
-                }
-              }
-            }
-          });
-
-          // Always reapply to services section after any DOM change
-          $("#capability, #capability *, section[id='capability'], section[id='capability'] *").css("cursor", "none !important");
-        });
-
-        // Create a specific observer for the services section
-        const servicesObserver = new MutationObserver(function () {
-          $("#capability, #capability *").css("cursor", "none !important");
-        });
-
-        // Start observing the document and services section
-        observer.observe(document.body, { childList: true, subtree: true });
-
-        const servicesSection = document.getElementById('capability');
-        if (servicesSection) {
-          servicesObserver.observe(servicesSection, {
-            childList: true,
-            subtree: true,
-            attributes: true,
-            attributeFilter: ['style', 'class']
-          });
-        }
-      }
+      // Custom cursor functionality removed
     });
   </script>
 
