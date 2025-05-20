@@ -1,0 +1,4 @@
+/* CSS to remove the Webflow badge */
+.w-webflow-badge {
+  display: none !important;
+} 
