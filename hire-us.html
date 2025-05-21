@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com -->
 <html data-wf-domain="nexvity.webflow.io" data-wf-page="6829da2d1c50d16039a086e3"
   data-wf-site="6829da2d1c50d16039a0867d" data-wf-status="1" lang="en" class=" w-mod-js w-mod-js">
 
 <head>
   <meta charset="utf-8">
-  <title>Hire Us | NVity - Modern Development Agency</title>
+  <title>Hire Us | Nexvity - Modern Development Agency</title>
   <meta
     content="Looking to work with NVity? Let's discuss your project. Hire us for modern web development, responsive design, and beautiful interfaces."
     name="description">
@@ -14,9 +13,9 @@
     content="Looking to work with NVity? Let's discuss your project. Hire us for modern web development, responsive design, and beautiful interfaces."
     property="og:description">
   <meta content="images/66683b25c7cf8db5bd7c2945_Webflow%20Open%20Graph.jpg" property="og:image">
-  <meta content="Hire Us | NVity - Modern Development Agency" property="twitter:title">
+  <meta content="Hire Us | Nexvity - Modern Development Agency" property="twitter:title">
   <meta
-    content="Looking to work with NVity? Let's discuss your project. Hire us for modern web development, responsive design, and beautiful interfaces."
+    content="Looking to work with Nexvity? Let's discuss your project. Hire us for modern web development, responsive design, and beautiful interfaces."
     property="twitter:description">
   <meta
     content="https://cdn.prod.website-files.com/61d9a11b191c47eba32f7c1e/66683b25c7cf8db5bd7c2945_Webflow%20Open%20Graph.jpg"
@@ -37,7 +36,7 @@
         filter: blur(0px);
       }
     }
-    
+
     /* Custom select styling */
     .custom-select-wrapper {
       position: relative;
@@ -155,7 +154,7 @@
     .open .arrow::after {
       transform: rotate(45deg);
     }
-    
+
     /* Hide original select but keep it for form submission */
     .hidden-select {
       opacity: 0;
@@ -272,7 +271,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8KNC23Z" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  
+
   <div class="page-wrapper">
     <div bind="4f34a39c-fda6-7dca-a9ad-8e431021bb2b" class="global-styles w-embed">
       <style>
@@ -344,13 +343,9 @@
             class="navbar_link w-nav-link">Work</a><a href="index.html#capability"
             class="navbar_link w-nav-link">Capabilities</a><a href="index.html#process"
             class="navbar_link w-nav-link">Process</a><a href="index.html#testimonial"
-            class="navbar_link w-nav-link">Testimonial</a><a href="hire-us.html"
-            class="button is-navbar-button menu_button w-inline-block w--current">
-            <div class="button_circle menu_button-circle"></div>
-            <div class="button_text-regular is-menu-button-text">Hire Us</div>
-            <div class="button-inner-shadow"></div>
-          </a></nav>
-        
+            class="navbar_link w-nav-link">Testimonial</a>
+        </nav>
+
       </div>
     </div>
     <div class="main-wrapper">
@@ -761,7 +756,7 @@
       </footer>
     </div>
   </div>
-  
+
   <style>
     /* Reduce footer spacing */
     .footer_component {
@@ -778,12 +773,12 @@
     $(document).ready(function () {
       // Hide answers initially
       $('.faq-answer').hide();
-      
+
       // FAQ Toggle functionality
       $('.faq-question').click(function () {
         const $answer = $(this).next('.faq-answer');
         const $icon = $(this).find('.faq-icon');
-        
+
         if ($answer.is(':visible')) {
           $answer.removeClass('active').slideUp(300);
           $icon.text('+');
@@ -794,7 +789,7 @@
           $icon.text('-');
         }
       });
-      
+
       // Form field enhancement
       $('.form-input, .form-textarea').focus(function () {
         $(this).parent('.form-field-wrapper').addClass('focused');
@@ -803,56 +798,56 @@
           $(this).parent('.form-field-wrapper').removeClass('focused');
         }
       });
-      
+
       // Parallax effect on floating elements
       $(window).scroll(function () {
         const scrollTop = $(window).scrollTop();
-        
+
         $('.floating-element').each(function (index) {
           const speed = 0.05 * (index + 1);
           $(this).css('transform', `translateY(${scrollTop * speed}px)`);
         });
       });
-      
+
       // Custom select dropdown functionality
       document.querySelectorAll('.custom-select-wrapper').forEach(function (wrapper) {
         const select = wrapper.querySelector('.custom-select');
         const trigger = wrapper.querySelector('.custom-select__trigger');
         const options = wrapper.querySelector('.custom-options');
         const customOptions = wrapper.querySelectorAll('.custom-option');
-        
+
         // Get ID of the corresponding hidden select
         const selectId = wrapper.id.replace('-wrapper', '');
         const hiddenSelect = document.getElementById(selectId);
-        
+
         // Toggle the custom select open/closed
         trigger.addEventListener('click', function () {
           select.classList.toggle('open');
         });
-        
+
         // Close the custom select when clicking outside
         window.addEventListener('click', function (e) {
           if (!select.contains(e.target)) {
             select.classList.remove('open');
           }
         });
-        
+
         // Handle option selection
         customOptions.forEach(function (option) {
           option.addEventListener('click', function () {
             // Update the trigger text
             trigger.querySelector('span').textContent = this.textContent;
-            
+
             // Update the hidden select value for form submission
             hiddenSelect.value = this.getAttribute('data-value');
-            
+
             // Remove selected class from all options and add to current
             customOptions.forEach(opt => opt.classList.remove('selected'));
             this.classList.add('selected');
-            
+
             // Close dropdown after selection
             select.classList.remove('open');
-            
+
             // Trigger change event for validation
             const event = new Event('change');
             hiddenSelect.dispatchEvent(event);
@@ -868,7 +863,7 @@
     (function () {
       // Only apply custom cursor on desktop
       if (window.innerWidth < 992) return;
-      
+
       // Get or create cursor element
       let cursor = document.querySelector('.cursor-dot');
       if (!cursor) {
@@ -876,38 +871,38 @@
         cursor.className = 'cursor-dot';
         document.body.appendChild(cursor);
       }
-      
+
       // Set initial position off-screen
       cursor.style.left = '-100px';
       cursor.style.top = '-100px';
-      
+
       // Move cursor
       function moveCursor(e) {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
       }
-      
+
       document.addEventListener('mousemove', moveCursor);
-      
+
       // Function to handle cursor size for interactive elements
       function setupInteractiveElements() {
         const interactiveElements = document.querySelectorAll(
           'a, button, .faq-question, input, select, textarea, .custom-select__trigger'
         );
-        
+
         interactiveElements.forEach(function (el) {
           el.addEventListener('mouseenter', function () {
             cursor.style.width = '30px';
             cursor.style.height = '30px';
           });
-          
+
           el.addEventListener('mouseleave', function () {
             cursor.style.width = '20px';
             cursor.style.height = '20px';
           });
         });
       }
-      
+
       // Run setup immediately or when DOM is ready
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', setupInteractiveElements);

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sun May 18 2025 15:11:52 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-domain="nexvity.webflow.io" data-wf-page="6829da2d1c50d16039a086e2"
   data-wf-site="6829da2d1c50d16039a0867d" data-wf-status="1" lang="en" class=" w-mod-js w-mod-js">
 
 <head>
   <meta charset="utf-8">
-  <title>White Label Webflow Development for Agencies | Flow Design Agency</title>
+  <title>Nexvity | Design Agency</title>
   <meta
     content="Flow Design Agency offers expert white-label Webflow development, helping agencies build and scale beautiful Webflow sites effortlessly."
     name="description">
@@ -463,7 +462,7 @@ a,
             class="navbar_link w-nav-link">Testimonial</a><a href="hire-us.html"
             class="button is-navbar-button menu_button w-inline-block">
             <div class="button_circle menu_button-circle"></div>
-            <div class="button_text-regular is-menu-button-text">Hire Us</div>
+            <div class="button_text-regular is-menu-button-text" id="hire-link">Hire Us</div>
             <div class="button-inner-shadow"></div>
           </a></nav>
         <div id="w-node-_602d53d4-f4a7-465b-4f68-82eeb60e8c9f-b60e8c87" class="navbar_button-wrapper"><a
@@ -2353,7 +2352,7 @@ a,
                           preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img">
                           <g clip-path="url(#clip0_614_964)">
                             <path d="M3 8.5L14 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                              stroke-linejoin="round" ></path>
+                              stroke-linejoin="round"></path>
                             <path d="M9.5 13L14 8.5L9.5 4" stroke="currentColor" stroke-width="1.5"
                               stroke-linecap="round" stroke-linejoin="round"></path>
                           </g>
@@ -2654,6 +2653,13 @@ a,
         attributes: true,
         attributeFilter: ['style']
       });
+    });
+  </script>
+  <script>
+    document.getElementById('hire-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.history.pushState({}, '', '/hire-us');
+      window.location.href = 'hire-us.html';
     });
   </script>
 </body>
