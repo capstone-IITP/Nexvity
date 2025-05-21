@@ -1,8 +1,0 @@
-{
-    "rewrites": [
-        {
-            "source": "/hire-us",
-            "destination": "/hire-us.html"
-        }
-    ]
-}
