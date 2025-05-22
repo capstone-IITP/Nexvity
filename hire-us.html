@@ -872,6 +872,59 @@
       }
     })();
   </script>
+  <script>
+    document.querySelectorAll('.custom-option').forEach(option => {
+      option.addEventListener('click', function () {
+        const selectId = this.closest('.custom-select-wrapper').id;
+        const value = this.getAttribute('data-value');
+
+        if (selectId === 'project-type-wrapper') {
+          document.getElementById('project-type').value = value;
+        } else if (selectId === 'budget-wrapper') {
+          document.getElementById('budget').value = value;
+        }
+
+        // Update the visible span
+        this.closest('.custom-select').querySelector('.custom-select__trigger span').innerText = value;
+      });
+    });
+  </script>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        projectType: form["project-type"].value,
+        budget: form.budget.value,
+        message: form["project-details"].value,
+      };
+
+      try {
+        const res = await fetch("/api/sendEmail", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          alert("Email sent successfully!");
+          form.reset();
+        } else {
+          alert("Failed to send email. Try again.");
+        }
+      } catch (error) {
+        console.error("Error sending email:", error);
+        alert("Error occurred. Check console.");
+      }
+    });
+  </script>
+
 
   <!-- Splash background effect script -->
   <script src="js/splash-background-effect.js"></script>
