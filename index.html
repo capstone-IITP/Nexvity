@@ -1420,6 +1420,35 @@ a,
             </div>
           </div>
 
+          <style>
+            /* Add dark blurry shade to the left and right sides of testimonial cards */
+            .testimonial-card {
+              position: relative;
+              overflow: hidden;
+            }
+
+            .testimonial-card::before,
+            .testimonial-card::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              height: 100%;
+              width: 15%;
+              pointer-events: none;
+              z-index: 1;
+            }
+
+            .testimonial-card::before {
+              left: 0;
+              background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+            }
+
+            .testimonial-card::after {
+              right: 0;
+              background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
+            }
+          </style>
+
           <div id="testimonials-container" class="testimonials-scrolling-container">
             <div class="testimonials-columns-wrapper">
               <!-- Column 1 - Scrolls Down -->
@@ -2371,7 +2400,7 @@ a,
 
               <!-- Right content -->
               <div style="text-align: right;">
-                <h1 style="font-size: 150px; font-weight: bold; margin-bottom: 20px; color: white;">NEXVITY</h1>
+                <h1 style="font-size: 200px; font-weight: bold; margin-bottom: 20px; color: white;">NEXVITY</h1>
                 <h2 style="margin-bottom: 20px; margin-right: 60px;">Connect With Us:</h2>
                 <div style="display: flex; justify-content: flex-end; gap: 15px; flex-wrap: wrap;">
 
@@ -2421,12 +2450,9 @@ a,
                       </svg>
                     </div>
                   </a>
-
                 </div>
               </div>
-
             </div>
-
           </div>
 
           <!-- Footer bottom -->
@@ -2438,7 +2464,6 @@ a,
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -2655,6 +2680,156 @@ a,
       });
     });
   </script>
+
+  <!-- #robot -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+  <style>
+    #robot-container {
+      position: absolute;
+      width: 300px;
+      height: 280px;
+      /* Slightly shorter than the content */
+      cursor: grab;
+      z-index: 1000;
+      right: 50px;
+      bottom: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    #robot-container:active {
+      cursor: grabbing;
+    }
+
+    .robot-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    spline-viewer {
+      position: absolute;
+      width: 100%;
+      height: 130%;
+      /* Make taller than container */
+      top: -5%;
+      /* Shift up slightly */
+      left: 0;
+      /* Hide bottom part */
+      clip-path: inset(0 0 20px 0);
+      -webkit-clip-path: inset(0 0 20px 0);
+    }
+
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    /* Fix bottom shadow/line */
+    .shadow-fix {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background-color: #151515;
+      /* Match body background */
+      z-index: 10;
+    }
+  </style>
+
+  <div id="robot-container" class="floating">
+    <div class="robot-wrapper">
+      <spline-viewer url="https://prod.spline.design/Ko5bcrZUXxxXElbL/scene.splinecode"></spline-viewer>
+      <!-- Extra element to cover the bottom line -->
+      <div class="shadow-fix"></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const robotContainer = document.getElementById('robot-container');
+      let isDragging = false;
+      let offsetX = 0;
+      let offsetY = 0;
+
+      robotContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        robotContainer.classList.remove('floating');
+        offsetX = e.clientX - robotContainer.getBoundingClientRect().left;
+        offsetY = e.clientY - robotContainer.getBoundingClientRect().top;
+        robotContainer.style.cursor = 'grabbing';
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          const newX = e.clientX - offsetX;
+          const newY = e.clientY - offsetY;
+
+          const maxX = window.innerWidth - robotContainer.offsetWidth;
+          const maxY = window.innerHeight - robotContainer.offsetHeight;
+
+          robotContainer.style.left = `${Math.max(0, Math.min(maxX, newX))}px`;
+          robotContainer.style.top = `${Math.max(0, Math.min(maxY, newY))}px`;
+          robotContainer.style.right = 'auto';
+          robotContainer.style.bottom = 'auto';
+        }
+      });
+
+      document.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          robotContainer.style.cursor = 'grab';
+          robotContainer.classList.add('floating');
+        }
+      });
+
+      // Touch support
+      robotContainer.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        robotContainer.classList.remove('floating');
+        const touch = e.touches[0];
+        offsetX = touch.clientX - robotContainer.getBoundingClientRect().left;
+        offsetY = touch.clientY - robotContainer.getBoundingClientRect().top;
+      });
+
+      document.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+          const touch = e.touches[0];
+          const newX = touch.clientX - offsetX;
+          const newY = touch.clientY - offsetY;
+
+          robotContainer.style.left = `${newX}px`;
+          robotContainer.style.top = `${newY}px`;
+          robotContainer.style.right = 'auto';
+          robotContainer.style.bottom = 'auto';
+
+          e.preventDefault();
+        }
+      });
+
+      document.addEventListener('touchend', () => {
+        isDragging = false;
+        robotContainer.classList.add('floating');
+      });
+    });
+  </script>
+  <!-- #robot -->
+
 </body>
 
 </html>
