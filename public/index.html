@@ -22,7 +22,7 @@
     property="twitter:image">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
   <meta content="Webflow" name="generator">
   <link href="css/nexvity.webflow.shared.605e9d800.css" rel="stylesheet" type="text/css">
   <link href="css/remove-webflow-badge.css" rel="stylesheet" type="text/css">
@@ -33,6 +33,191 @@
         width: 1rem;
         height: 1rem;
         filter: blur(0px);
+      }
+    }
+
+    /* Responsive improvements */
+    @media (max-width: 991px) {
+      .navbar_component {
+        padding: 15px 0;
+      }
+      
+      .header_title {
+        font-size: 2.5rem !important;
+        line-height: 1.2;
+      }
+      
+      .text-size-medium {
+        font-size: 1rem !important;
+      }
+      
+      .padding-section-large {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+      
+      .padding-global {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      
+      .padding-global-portfolio {
+        width: 100% !important;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      
+      .portfolio_list {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .portfolio_image {
+        height: 300px;
+        object-fit: cover;
+      }
+      
+      .process_row {
+        grid-template-columns: 1fr !important;
+        gap: 30px;
+      }
+      
+      .w-layout-grid {
+        grid-row-gap: 30px !important;
+      }
+      
+      .experience_component {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .testimonials-columns-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr !important;
+      }
+      
+      #column3, #column4 {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .header_title {
+        font-size: 2rem !important;
+      }
+      
+      .testimonials-columns-wrapper {
+        grid-template-columns: 1fr !important;
+      }
+      
+      #column2 {
+        display: none;
+      }
+      
+      .button_text-small {
+        display: block !important;
+        font-size: 14px;
+      }
+      
+      .container-small, .container-large {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      
+      .button.is-portfolio {
+        padding: 8px 15px;
+      }
+    }
+    
+    @media (max-width: 479px) {
+      .header_title {
+        font-size: 1.75rem !important;
+      }
+      
+      .navbar_logo {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .button.is-navbar-button {
+        padding: 8px 12px;
+      }
+      
+      .portfolio_item {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Fix testimonial cards for mobile */
+    .testimonial-card {
+      width: 100%;
+      min-height: 200px;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-content {
+      padding: 20px;
+    }
+    
+    /* Make project cards responsive */
+    .portfolio_image {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+      object-fit: cover;
+    }
+    
+    .portfolio_item {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    
+    .portfolio_item:hover .portfolio_image {
+      transform: scale(1.03);
+    }
+    
+    /* Ensure View Project buttons are visible on mobile */
+    .button.is-portfolio {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 25px;
+      padding: 10px 20px;
+      z-index: 5;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    
+    .button.is-portfolio:hover,
+    .portfolio_item:hover .button.is-portfolio {
+      opacity: 1;
+    }
+    
+    @media (max-width: 767px) {
+      .button.is-portfolio {
+        opacity: 1;
+      }
+      
+      .button_text-small.hide-tablet {
+        display: block !important;
+      }
+      
+      .portfolio_image {
+        height: 300px;
+      }
+    }
+    
+    /* Responsive containers */
+    .container-small, .container-large {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Services section responsive fixes */
+    @media (max-width: 767px) {
+      .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
       }
     }
   </style>
@@ -78,6 +263,71 @@
       left: 0;
       width: 100vw;
       height: 100%;
+    }
+    
+    /* Additional responsive testimonial styles */
+    #testimonials-container {
+      overflow: hidden;
+      position: relative;
+      max-width: 100%;
+    }
+    
+    .testimonials-columns-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+    
+    .testimonials-column {
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .testimonial-cards-wrapper {
+      transition: transform 0.3s ease;
+    }
+    
+    .testimonial-card {
+      background-color: rgba(20, 20, 20, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .profile-photo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .testimonial-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    /* Team section responsive fixes */
+    .team, .team-description {
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    /* Mobile menu improvements */
+    @media (max-width: 991px) {
+      .navbar_menu.is-page-height-tablet {
+        height: 100vh;
+        padding-top: 80px;
+      }
+      
+      .navbar_link {
+        margin: 15px 0;
+        font-size: 18px;
+      }
     }
   </style>
 </head>
@@ -1425,6 +1675,15 @@ a,
             .testimonial-card {
               position: relative;
               overflow: hidden;
+              background-color: rgba(20, 20, 20, 0.8);
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-radius: 10px;
+              margin-bottom: 20px;
+              width: 100%;
+              height: auto;
+              min-height: 200px;
+              display: flex;
+              flex-direction: column;
             }
 
             .testimonial-card::before,
@@ -1446,6 +1705,101 @@ a,
             .testimonial-card::after {
               right: 0;
               background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
+            }
+            
+            /* Fix for testimonial container */
+            #testimonials-container {
+              width: 100%;
+              overflow: hidden;
+              position: relative;
+            }
+            
+            .testimonials-columns-wrapper {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 20px;
+            }
+            
+            .testimonials-column {
+              width: 100%;
+              overflow: hidden;
+            }
+            
+            .testimonial-cards-wrapper {
+              width: 100%;
+            }
+            
+            /* Fix content alignment */
+            .testimonial-content {
+              padding: 20px;
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+              width: 100%;
+            }
+            
+            .testimonial-profile {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-bottom: 10px;
+            }
+            
+            .profile-photo {
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              object-fit: cover;
+              margin-bottom: 10px;
+            }
+            
+            .profile-name {
+              font-weight: bold;
+              margin-bottom: 5px;
+              font-size: 16px;
+            }
+            
+            .profile-title {
+              color: rgba(255, 255, 255, 0.7);
+              font-size: 14px;
+            }
+            
+            .testimonial-stars {
+              color: #FFD700;
+              font-size: 16px;
+              margin-bottom: 10px;
+            }
+            
+            .testimonial-text {
+              color: #fff;
+              font-size: 14px;
+              line-height: 1.5;
+              flex-grow: 1;
+              text-align: center;
+              width: 100%;
+              word-wrap: break-word;
+              white-space: normal;
+            }
+            
+            @media (max-width: 991px) {
+              .testimonials-columns-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+              }
+              
+              #column3, #column4 {
+                display: none;
+              }
+            }
+            
+            @media (max-width: 767px) {
+              .testimonials-columns-wrapper {
+                grid-template-columns: 1fr;
+              }
+              
+              #column2, #column3, #column4 {
+                display: none;
+              }
             }
           </style>
 
@@ -1709,8 +2063,8 @@ a,
               sectionHeight += cards[i].offsetHeight + parseInt(getComputedStyle(cards[i]).marginBottom);
             }
 
-            // Adjust the animation speed slightly per column for variety
-            const speedModifier = 0.8 + (index * 0.15);
+            // Adjust the animation speed slightly per column for variety but keep it smoother
+            const speedModifier = 0.9 + (index * 0.1);
             const currentSpeed = animationSettings.speed * speedModifier;
 
             // Calculate new position
@@ -1733,8 +2087,9 @@ a,
               }
             }
 
-            // Apply the transform
+            // Apply the transform with easing
             wrapper.style.transform = `translateY(${newY}px)`;
+            wrapper.style.transition = 'transform 0.1s linear';
           });
 
           // Continue animation loop
@@ -2830,6 +3185,89 @@ a,
   </script>
   <!-- #robot -->
 
+  <!-- Additional responsive JavaScript for portfolio items -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Make portfolio items more responsive
+      const portfolioItems = document.querySelectorAll('.portfolio_item');
+      
+      portfolioItems.forEach(item => {
+        // Make sure "View Project" buttons are visible on mobile
+        const button = item.querySelector('.button.is-portfolio');
+        const buttonText = item.querySelector('.button_text-small');
+        
+        // Ensure text is visible on mobile
+        if (buttonText && window.innerWidth <= 767) {
+          buttonText.classList.remove('hide-tablet');
+          buttonText.style.display = 'block';
+        }
+        
+        // Handle touch events for mobile devices
+        item.addEventListener('touchstart', function() {
+          // Make button more visible when touched
+          if (button) {
+            button.style.opacity = '1';
+            button.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+          }
+        });
+        
+        // Add hover effect for portfolio items
+        item.addEventListener('mouseenter', function() {
+          const image = this.querySelector('.portfolio_image');
+          if (image) {
+            image.style.transform = 'scale(1.03)';
+            image.style.transition = 'transform 0.3s ease';
+          }
+          if (button) {
+            button.style.opacity = '1';
+          }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          const image = this.querySelector('.portfolio_image');
+          if (image) {
+            image.style.transform = 'scale(1)';
+          }
+          if (button && window.innerWidth > 767) {
+            button.style.opacity = '0.7';
+          }
+        });
+      });
+      
+      // Make sure portfolio buttons are visible on mobile
+      function updatePortfolioButtons() {
+        const buttons = document.querySelectorAll('.button.is-portfolio');
+        const isMobile = window.innerWidth <= 767;
+        
+        buttons.forEach(button => {
+          const buttonText = button.querySelector('.button_text-small');
+          if (buttonText) {
+            if (isMobile) {
+              buttonText.classList.remove('hide-tablet');
+              buttonText.style.display = 'block';
+            } else {
+              // Reset on desktop if it has the hide-tablet class originally
+              if (buttonText.classList.contains('hide-tablet')) {
+                buttonText.style.display = '';
+              }
+            }
+          }
+          
+          // Ensure button is visible on mobile
+          if (isMobile) {
+            button.style.opacity = '1';
+            button.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            button.style.borderRadius = '25px';
+            button.style.padding = '8px 15px';
+          }
+        });
+      }
+      
+      // Run on load and resize
+      updatePortfolioButtons();
+      window.addEventListener('resize', updatePortfolioButtons);
+    });
+  </script>
 </body>
 
 </html>
