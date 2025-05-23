@@ -904,7 +904,7 @@
       };
 
       try {
-        const res = await fetch("/api/sendEmail", {
+        const res = await fetch("/api/resend", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -924,7 +924,6 @@
       }
     });
   </script>
-
 
   <!-- Splash background effect script -->
   <script src="js/splash-background-effect.js"></script>
