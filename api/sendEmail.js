@@ -14,13 +14,18 @@ export default async function handler(req, res) {
       to: 'team.official@nexvity.com',
       subject: 'New Inquiry from Nexvity',
       html: `
-        <h3>New Client Message</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Project Type:</strong> ${projectType}</p>
-        <p><strong>Budget:</strong> ${budget}</p>
-        <p><strong>Message:</strong><br>${message}</p>
-      `,
+        <div style="font-family: Arial, sans-serif; color: #333; padding: 20px; background: #f9f9f9;">
+          <h2 style="color: #0d6efd;">New Inquiry 🚀</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Project Type:</strong> ${projectType}</p>
+          <p><strong>Budget:</strong> ${budget}</p>
+          <p><strong>Message:</strong><br>${message}</p>
+      
+          <hr style="margin: 20px 0;" />
+          <p style="font-size: 12px; color: #888;">This message was sent via Nexvity’s contact form.</p>
+        </div>
+      `
     });
 
     res.status(200).json({ success: true });
