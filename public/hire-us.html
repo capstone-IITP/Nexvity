@@ -218,9 +218,11 @@
       0% {
         transform: scale(1);
       }
+
       50% {
         transform: scale(1.1);
       }
+
       100% {
         transform: scale(1);
       }
@@ -567,7 +569,8 @@
                 </form>
                 <div class="w-form-done">
                   <div id="success-message">Thank you! Your request has been received. We'll be in touch shortly.</div>
-                  <div id="countdown" style="margin-top: 10px; font-size: 1.2em;">Redirecting in <span id="timer">5</span> seconds...</div>
+                  <div id="countdown" style="margin-top: 10px; font-size: 1.2em;">Redirecting in <span
+                      id="timer">5</span> seconds...</div>
                 </div>
                 <div class="w-form-fail">
                   <div>Oops! Something went wrong. Please try again or contact us directly.</div>
@@ -978,15 +981,15 @@
       const overlay = document.getElementById('popupOverlay');
       const successPopup = document.getElementById('successPopup');
       const errorPopup = document.getElementById('errorPopup');
-      
+
       // Clear any existing countdown
       if (countdownInterval) {
         clearInterval(countdownInterval);
         countdownInterval = null;
       }
-      
+
       overlay.style.display = 'block';
-      
+
       if (type === 'success') {
         successPopup.style.display = 'block';
         errorPopup.style.display = 'none';
@@ -1013,27 +1016,27 @@
     function startCountdown() {
       const timerSpan = document.getElementById('timer');
       let timeLeft = 5;
-      
+
       // Show initial number
       timerSpan.textContent = timeLeft;
-      
+
       // Clear any existing interval first
       if (countdownInterval) {
         clearInterval(countdownInterval);
       }
-      
+
       countdownInterval = setInterval(() => {
         timeLeft--;
         timerSpan.textContent = timeLeft;
-        
+
         // Only redirect when we reach 0
         if (timeLeft === 0) {
           clearInterval(countdownInterval);
           countdownInterval = null;
-          
+
           // Redirect after showing 0 for a moment
           setTimeout(() => {
-            window.location.href = 'https://nexvity.com';
+            window.location.href = 'https://www.nexvity.com';
           }, 800);
         }
       }, 1000);
@@ -1101,4 +1104,5 @@
     </div>
   </div>
 </body>
+
 </html>
