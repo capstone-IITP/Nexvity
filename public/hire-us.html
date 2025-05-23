@@ -197,8 +197,33 @@
 
     .popup-timer {
       color: var(--light-green);
-      font-size: 1.2em;
-      margin-top: 1rem;
+      font-size: 2em;
+      margin-top: 1.5rem;
+      font-weight: bold;
+    }
+
+    .countdown-number {
+      display: inline-block;
+      background: var(--light-green);
+      color: var(--black);
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      margin: 0 5px;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
 
     .popup-overlay {
@@ -207,7 +232,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(5px);
       z-index: 9998;
       display: none;
@@ -947,16 +972,25 @@
     });
   </script>
   <script>
+    let countdownInterval = null;
+
     function showPopup(type, message = '') {
       const overlay = document.getElementById('popupOverlay');
       const successPopup = document.getElementById('successPopup');
       const errorPopup = document.getElementById('errorPopup');
+      
+      // Clear any existing countdown
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+      }
       
       overlay.style.display = 'block';
       
       if (type === 'success') {
         successPopup.style.display = 'block';
         errorPopup.style.display = 'none';
+        startCountdown();
       } else {
         errorPopup.style.display = 'block';
         successPopup.style.display = 'none';
@@ -967,16 +1001,40 @@
     }
 
     function closePopup() {
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+      }
       document.getElementById('popupOverlay').style.display = 'none';
       document.getElementById('successPopup').style.display = 'none';
       document.getElementById('errorPopup').style.display = 'none';
+    }
+
+    function startCountdown() {
+      const timerSpan = document.getElementById('timer');
+      let timeLeft = 5;
+      timerSpan.textContent = timeLeft;
+      
+      countdownInterval = setInterval(() => {
+        timeLeft--;
+        if (timeLeft >= 0) {
+          timerSpan.textContent = timeLeft;
+        }
+        if (timeLeft <= 0) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+          // Small delay before redirect to ensure the last number is shown
+          setTimeout(() => {
+            window.location.href = 'https://nexvity.com';
+          }, 500);
+        }
+      }, 1000);
     }
 
     document.getElementById("contact-form").addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const form = e.target;
-      const timerSpan = document.getElementById('timer');
 
       const data = {
         name: form.name.value,
@@ -998,18 +1056,6 @@
         if (res.ok) {
           form.style.display = 'none';
           showPopup('success');
-          
-          // Start countdown
-          let timeLeft = 5;
-          const countdownInterval = setInterval(() => {
-            timeLeft--;
-            timerSpan.textContent = timeLeft;
-            
-            if (timeLeft <= 0) {
-              clearInterval(countdownInterval);
-              window.location.href = 'https://nexvity.com';
-            }
-          }, 1000);
         } else {
           showPopup('error', 'Failed to send email. Please try again.');
         }
@@ -1034,7 +1080,7 @@
       <h3 style="color: var(--light-green); margin-bottom: 1rem;">Success!</h3>
       <p>Thank you! Your request has been received. We'll be in touch shortly.</p>
       <div class="popup-timer">
-        Redirecting in <span id="timer">5</span> seconds...
+        Redirecting in <span id="timer" class="countdown-number">5</span>
       </div>
     </div>
   </div>
