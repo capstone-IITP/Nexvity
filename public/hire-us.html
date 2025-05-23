@@ -1013,20 +1013,28 @@
     function startCountdown() {
       const timerSpan = document.getElementById('timer');
       let timeLeft = 5;
+      
+      // Show initial number
       timerSpan.textContent = timeLeft;
+      
+      // Clear any existing interval first
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+      }
       
       countdownInterval = setInterval(() => {
         timeLeft--;
-        if (timeLeft >= 0) {
-          timerSpan.textContent = timeLeft;
-        }
-        if (timeLeft <= 0) {
+        timerSpan.textContent = timeLeft;
+        
+        // Only redirect when we reach 0
+        if (timeLeft === 0) {
           clearInterval(countdownInterval);
           countdownInterval = null;
-          // Small delay before redirect to ensure the last number is shown
+          
+          // Redirect after showing 0 for a moment
           setTimeout(() => {
             window.location.href = 'https://nexvity.com';
-          }, 500);
+          }, 800);
         }
       }, 1000);
     }
