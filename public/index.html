@@ -41,106 +41,108 @@
       .navbar_component {
         padding: 15px 0;
       }
-      
+
       .header_title {
         font-size: 2.5rem !important;
         line-height: 1.2;
       }
-      
+
       .text-size-medium {
         font-size: 1rem !important;
       }
-      
+
       .padding-section-large {
         padding-top: 60px;
         padding-bottom: 60px;
       }
-      
+
       .padding-global {
         padding-left: 20px;
         padding-right: 20px;
       }
-      
+
       .padding-global-portfolio {
         width: 100% !important;
         padding-left: 20px;
         padding-right: 20px;
       }
-      
+
       .portfolio_list {
         grid-template-columns: 1fr !important;
       }
-      
+
       .portfolio_image {
         height: 300px;
         object-fit: cover;
       }
-      
+
       .process_row {
         grid-template-columns: 1fr !important;
         gap: 30px;
       }
-      
+
       .w-layout-grid {
         grid-row-gap: 30px !important;
       }
-      
+
       .experience_component {
         grid-template-columns: 1fr !important;
       }
-      
+
       .testimonials-columns-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr !important;
       }
-      
-      #column3, #column4 {
+
+      #column3,
+      #column4 {
         display: none;
       }
     }
-    
+
     @media (max-width: 767px) {
       .header_title {
         font-size: 2rem !important;
       }
-      
+
       .testimonials-columns-wrapper {
         grid-template-columns: 1fr !important;
       }
-      
+
       #column2 {
         display: none;
       }
-      
+
       .button_text-small {
         display: block !important;
         font-size: 14px;
       }
-      
-      .container-small, .container-large {
+
+      .container-small,
+      .container-large {
         padding-left: 15px;
         padding-right: 15px;
       }
-      
+
       .button.is-portfolio {
         padding: 8px 15px;
       }
     }
-    
+
     @media (max-width: 479px) {
       .header_title {
         font-size: 1.75rem !important;
       }
-      
+
       .navbar_logo {
         width: 50px;
         height: 50px;
       }
-      
+
       .button.is-navbar-button {
         padding: 8px 12px;
       }
-      
+
       .portfolio_item {
         margin-bottom: 20px;
       }
@@ -152,11 +154,11 @@
       min-height: 200px;
       margin-bottom: 20px;
     }
-    
+
     .testimonial-content {
       padding: 20px;
     }
-    
+
     /* Make project cards responsive */
     .portfolio_image {
       width: 100%;
@@ -164,17 +166,17 @@
       transition: transform 0.3s ease;
       object-fit: cover;
     }
-    
+
     .portfolio_item {
       position: relative;
       overflow: hidden;
       margin-bottom: 30px;
     }
-    
+
     .portfolio_item:hover .portfolio_image {
       transform: scale(1.03);
     }
-    
+
     /* Ensure View Project buttons are visible on mobile */
     .button.is-portfolio {
       position: absolute;
@@ -187,33 +189,34 @@
       opacity: 0.7;
       transition: opacity 0.3s ease;
     }
-    
+
     .button.is-portfolio:hover,
     .portfolio_item:hover .button.is-portfolio {
       opacity: 1;
     }
-    
+
     @media (max-width: 767px) {
       .button.is-portfolio {
         opacity: 1;
       }
-      
+
       .button_text-small.hide-tablet {
         display: block !important;
       }
-      
+
       .portfolio_image {
         height: 300px;
       }
     }
-    
+
     /* Responsive containers */
-    .container-small, .container-large {
+    .container-small,
+    .container-large {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
     }
-    
+
     /* Services section responsive fixes */
     @media (max-width: 767px) {
       .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
@@ -264,30 +267,30 @@
       width: 100vw;
       height: 100%;
     }
-    
+
     /* Additional responsive testimonial styles */
     #testimonials-container {
       overflow: hidden;
       position: relative;
       max-width: 100%;
     }
-    
+
     .testimonials-columns-wrapper {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       width: 100%;
     }
-    
+
     .testimonials-column {
       overflow: hidden;
       position: relative;
     }
-    
+
     .testimonial-cards-wrapper {
       transition: transform 0.3s ease;
     }
-    
+
     .testimonial-card {
       background-color: rgba(20, 20, 20, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -296,34 +299,35 @@
       margin-bottom: 20px;
       position: relative;
     }
-    
+
     .profile-photo {
       width: 60px;
       height: 60px;
       border-radius: 50%;
       object-fit: cover;
     }
-    
+
     .testimonial-profile {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-bottom: 10px;
     }
-    
+
     /* Team section responsive fixes */
-    .team, .team-description {
+    .team,
+    .team-description {
       padding: 0 20px;
       text-align: center;
     }
-    
+
     /* Mobile menu improvements */
     @media (max-width: 991px) {
       .navbar_menu.is-page-height-tablet {
         height: 100vh;
         padding-top: 80px;
       }
-      
+
       .navbar_link {
         margin: 15px 0;
         font-size: 18px;
@@ -381,7 +385,6 @@
         body {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
-          font-smoothing: antialiased;
           text-rendering: optimizeLegibility;
         }
 
@@ -455,6 +458,7 @@ a,
           display: -webkit-box;
           overflow: hidden;
           -webkit-line-clamp: 3;
+          line-clamp: 3;
           -webkit-box-orient: vertical;
         }
 
@@ -463,6 +467,7 @@ a,
           display: -webkit-box;
           overflow: hidden;
           -webkit-line-clamp: 2;
+          line-clamp: 2;
           -webkit-box-orient: vertical;
         }
 
@@ -1706,29 +1711,29 @@ a,
               right: 0;
               background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent);
             }
-            
+
             /* Fix for testimonial container */
             #testimonials-container {
               width: 100%;
               overflow: hidden;
               position: relative;
             }
-            
+
             .testimonials-columns-wrapper {
               display: grid;
               grid-template-columns: repeat(4, 1fr);
               gap: 20px;
             }
-            
+
             .testimonials-column {
               width: 100%;
               overflow: hidden;
             }
-            
+
             .testimonial-cards-wrapper {
               width: 100%;
             }
-            
+
             /* Fix content alignment */
             .testimonial-content {
               padding: 20px;
@@ -1738,14 +1743,14 @@ a,
               height: 100%;
               width: 100%;
             }
-            
+
             .testimonial-profile {
               display: flex;
               flex-direction: column;
               align-items: center;
               margin-bottom: 10px;
             }
-            
+
             .profile-photo {
               width: 60px;
               height: 60px;
@@ -1753,24 +1758,24 @@ a,
               object-fit: cover;
               margin-bottom: 10px;
             }
-            
+
             .profile-name {
               font-weight: bold;
               margin-bottom: 5px;
               font-size: 16px;
             }
-            
+
             .profile-title {
               color: rgba(255, 255, 255, 0.7);
               font-size: 14px;
             }
-            
+
             .testimonial-stars {
               color: #FFD700;
               font-size: 16px;
               margin-bottom: 10px;
             }
-            
+
             .testimonial-text {
               color: #fff;
               font-size: 14px;
@@ -1781,23 +1786,26 @@ a,
               word-wrap: break-word;
               white-space: normal;
             }
-            
+
             @media (max-width: 991px) {
               .testimonials-columns-wrapper {
                 grid-template-columns: repeat(2, 1fr);
               }
-              
-              #column3, #column4 {
+
+              #column3,
+              #column4 {
                 display: none;
               }
             }
-            
+
             @media (max-width: 767px) {
               .testimonials-columns-wrapper {
                 grid-template-columns: 1fr;
               }
-              
-              #column2, #column3, #column4 {
+
+              #column2,
+              #column3,
+              #column4 {
                 display: none;
               }
             }
@@ -2170,11 +2178,10 @@ a,
           <div class="w-layout-grid experience_component">
             <div class="experience_content-left">
               <div class="experience_profile-image-wrapper"><img class="experience_profile-image"
-                  src="images/6829da2d1c50d16039a087f6_Professional%20Male%20Portrait%20-%20Optimized.jpg" alt=""
-                  data-sizes="[{"
+                  src="images/Navdeepak.png" alt="" data-sizes="[{"
                   max":479,"size":"100vw"},{"max":767,"size":"58vw"},{"max":991,"size":"35vw"},{"max":10000,"size":"276.9583435058594px"}]"=""
                   sizes="100vw" loading="lazy"
-                  srcset="images/6829da2d1c50d16039a087f6_Professional%2520Male%2520Portrait%2520-%2520Optimized-p-500.jpg 500w, images/6829da2d1c50d16039a087f6_Professional%2520Male%2520Portrait%2520-%2520Optimized-p-800.jpg 800w, images/6829da2d1c50d16039a087f6_Professional%20Male%20Portrait%20-%20Optimized.jpg 1072w">
+                  srcset="images/Navdeepak.png 500w, images/Navdeepak.png 800w, images/Navdeepak.png 1072w">
               </div>
               <div class="margin-bottom margin-xsmall">
                 <h2 class="experience_profile-name">Navdeepak</h2>
@@ -3187,32 +3194,32 @@ a,
 
   <!-- Additional responsive JavaScript for portfolio items -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Make portfolio items more responsive
       const portfolioItems = document.querySelectorAll('.portfolio_item');
-      
+
       portfolioItems.forEach(item => {
         // Make sure "View Project" buttons are visible on mobile
         const button = item.querySelector('.button.is-portfolio');
         const buttonText = item.querySelector('.button_text-small');
-        
+
         // Ensure text is visible on mobile
         if (buttonText && window.innerWidth <= 767) {
           buttonText.classList.remove('hide-tablet');
           buttonText.style.display = 'block';
         }
-        
+
         // Handle touch events for mobile devices
-        item.addEventListener('touchstart', function() {
+        item.addEventListener('touchstart', function () {
           // Make button more visible when touched
           if (button) {
             button.style.opacity = '1';
             button.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
           }
         });
-        
+
         // Add hover effect for portfolio items
-        item.addEventListener('mouseenter', function() {
+        item.addEventListener('mouseenter', function () {
           const image = this.querySelector('.portfolio_image');
           if (image) {
             image.style.transform = 'scale(1.03)';
@@ -3222,8 +3229,8 @@ a,
             button.style.opacity = '1';
           }
         });
-        
-        item.addEventListener('mouseleave', function() {
+
+        item.addEventListener('mouseleave', function () {
           const image = this.querySelector('.portfolio_image');
           if (image) {
             image.style.transform = 'scale(1)';
@@ -3233,12 +3240,12 @@ a,
           }
         });
       });
-      
+
       // Make sure portfolio buttons are visible on mobile
       function updatePortfolioButtons() {
         const buttons = document.querySelectorAll('.button.is-portfolio');
         const isMobile = window.innerWidth <= 767;
-        
+
         buttons.forEach(button => {
           const buttonText = button.querySelector('.button_text-small');
           if (buttonText) {
@@ -3252,7 +3259,7 @@ a,
               }
             }
           }
-          
+
           // Ensure button is visible on mobile
           if (isMobile) {
             button.style.opacity = '1';
@@ -3262,7 +3269,7 @@ a,
           }
         });
       }
-      
+
       // Run on load and resize
       updatePortfolioButtons();
       window.addEventListener('resize', updatePortfolioButtons);
